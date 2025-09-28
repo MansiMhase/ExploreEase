@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+	<style>
+		.fa {
+			font-size: 50px;
+			cursor: pointer;
+			user-select: none;
+		}
+
+		.fa:hover {
+			color: darkred;
+		}
+	</style>
+</head>
+<body>
+
+<p>Click on the icon to toggle between thumbs-up and thumbs-down (like/dislike):</p>
+
+<i id="heartIcon" class="fa fa-regular fa-heart" style="color: #b4b1b1;"></i>
+<span id="count">0</span>
+
+<script>
+	const heartIcon = document.getElementById('heartIcon');
+	const count = document.getElementById('count');
+	let likeCount = 0;
+
+	function toggleLike() {
+		heartIcon.classList.toggle('fa-regular');
+		heartIcon.classList.toggle('fa-solid');
+		likeCount += heartIcon.classList.contains('fa-regular') ? -1 : 1;
+		count.textContent = likeCount;
+		heartIcon.style.color = heartIcon.classList.contains('fa-regular') ? '#b4b1b1' : '#c92c2c';
+	}
+
+	heartIcon.addEventListener('click', toggleLike);
+</script>
+
+</body>
+</html>
